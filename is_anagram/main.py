@@ -15,7 +15,19 @@
 # def is_anagram(str1: str, str2: str) -> bool:
 #     return sorted(str1) == sorted(str2)
 
-from collections import Counter
+# from collections import Counter
+
+# def is_anagram(str1: str, str2: str) -> bool:
+#     return Counter(str1) == Counter(str2)
+
+def str_to_dict(str: str) -> dict[str, int]:
+    result = {}
+    for char in str:
+        if char not in result:
+            result[char] = 1
+        else:
+            result[char] = result[char] + 1
+    return result
 
 def is_anagram(str1: str, str2: str) -> bool:
-    return Counter(str1) == Counter(str2)
+    return str_to_dict(str1) == str_to_dict(str2)
